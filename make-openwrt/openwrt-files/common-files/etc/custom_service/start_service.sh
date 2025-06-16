@@ -97,4 +97,8 @@ sawp_check_file="${PARTITION_PATH}/.swap/swapfile"
 }
 
 # Add custom log
+[[ -x "/usr/bin/fanoes.sh" ]] && {
+    /usr/bin/fanoes.sh >/dev/null 2>&1 &
+    echo "[$(date +"%Y.%m.%d.%H:%M:%S")] The temperature-based fan control service (fanoes) started successfully." >>${custom_log}
+}
 echo "[$(date +"%Y.%m.%d.%H:%M:%S")] All custom services executed successfully!" >>${custom_log}
